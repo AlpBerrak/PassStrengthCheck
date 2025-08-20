@@ -53,4 +53,11 @@ def passwordStrength(password: str):
     "CrackTimeSeconds": crackTimeSec,
     "Strength": strength
   }
+ 
+ 
+def main():
+  pwd = input("Enter a password: ")
+  result = passwordStrength(pwd)
+  
+  
   
