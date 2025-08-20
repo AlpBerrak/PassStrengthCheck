@@ -9,7 +9,7 @@ def passwordStrength(password: str):
   hasLower = bool(re.search(r"[a-z]",password))
   hasUpper = bool(re.search(r"[A-Z]",password))
   hasNum = bool(re.search(r"/d", password))
-  hasSymbol = bool(re.search(r"[!@#$%^&*(),.?:{}|<>`~-+_/]",password))
+  hasSymbol = bool(re.search(r"[!@#$%^&*(),.?:{}|<>`~\-+_/]",password))
   
   # calculate character space from sets
   charSpace = 0
