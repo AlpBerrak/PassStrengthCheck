@@ -22,4 +22,25 @@ def passwordStrength(password: str):
     charSpace += 10
   if hasSymbol:
     charSpace += 25
+    
+  # entropy estimate
+  entropy = length * math.log2(charSpace) if charSpace > 0 else 0
+  
+  # estimate crack time 
+  # assume 1e9 guesses per second
+  guesses = charSpace ** length if charSpace > 0 else 0
+  crackTimeSec = guesses / 1e9 if guesses > 0 else 0
+  
+  # Strength rating
+  if entropy < 28:
+    strength = "Very Weak"
+  elif entropy < 36:
+    strength = "Weak"
+  elif entropy < 63:
+    strength = "Reasonable"
+  elif entropy < 128:
+    strength = "Strong"
+  else:
+    strength = "Very Strong"
+
   
