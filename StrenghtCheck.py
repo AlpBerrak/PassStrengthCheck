@@ -42,5 +42,15 @@ def passwordStrength(password: str):
     strength = "Strong"
   else:
     strength = "Very Strong"
-
+    
+  return {
+    "length": length,
+    "LowercaseChars": hasLower,
+    "UppercaseChars": hasUpper,
+    "NumberChars": hasNum,
+    "SymbolChars": hasSymbol,
+    "EntropyBits": round(entropy, 2),
+    "CrackTimeSeconds": crackTimeSec,
+    "Strength": strength
+  }
   
