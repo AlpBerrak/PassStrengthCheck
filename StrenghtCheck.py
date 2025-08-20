@@ -6,7 +6,7 @@ def passwordStrength(password: str):
   length = len(password)
   
   # check the character sets
-  hasLower = bool(re.serach(r"[a-z]",password))
+  hasLower = bool(re.search(r"[a-z]",password))
   hasUpper = bool(re.search(r"[A-Z]",password))
   hasNum = bool(re.search(r"/d", password))
   hasSymbol = bool(re.search(r"[!@#$%^&*(),.?:{}|<>`~-+_/]",password))
@@ -54,10 +54,22 @@ def passwordStrength(password: str):
     "Strength": strength
   }
  
+def displayInfo(result):
+  print(f"\nPassword Length: {result['length']}")
+  print(f"\nContains Lowercase: {result['LowercaseChars']}")
+  print(f"\nContains Uppercase: {result['UppercaseChars']}")
+  print(f"\nContains Numbers : {result['NumberChars']}")
+  print(f"\nContains Symbols: {result['SymbolChars']}")
+  print(f"\nEntropy: {result['EntropyBits']}")
+  print(f"\nEstimated Crack time: {result['CrackTimeSeconds']}")
+  print(f"\nOverall Strength: {result['Strength']}")
  
 def main():
   pwd = input("Enter a password: ")
   result = passwordStrength(pwd)
+  displayInfo(result)
   
+if __name__ == "__main__":
+  main()
   
   
